@@ -4,6 +4,7 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
+
 def task4():
 
     with open('texts.csv', 'r') as f:
@@ -37,9 +38,9 @@ def task4():
 
     # 号码排序
     telephone_marketing_list = sorted(telephone_marketing_set)
-    print("These numbers could be telemarketers: \n"
-          f"{telephone_marketing_list}\n" 
-          "The list of numbers should be print out one per line in lexicographic order with no duplicates")
+    print("These numbers could be telemarketers: ")
+    print(*telephone_marketing_list, sep="\n")
+
 """
 TASK 4:
 The telephone company want to identify numbers that might be doing
@@ -51,8 +52,6 @@ Print a message:
 "These numbers could be telemarketers: "
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
-
-
 
 
 

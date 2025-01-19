@@ -1,19 +1,12 @@
 TASK 0:
-    texts_list.sort(key=lambda x: datetime.strptime(x[2], "%d-%m-%Y %H:%M:%S"))
-    first_text = texts_list[0]
-
-    calls_list.sort(key=lambda x: datetime.strptime(x[2], "%d-%m-%Y %H:%M:%S"))
-    last_call = calls_list[-1]
-
     Calculate Big O
-    sort texts_list is O(n log n)
-    get(first_text)  O(1)
-    sort calls is O(m log m)
-    get(last_call)  O(1)
+    first_text = texts_list[0]
+    is O(1)
 
-    Time - Complexity: O(n log n) + O(m log m) + O(1) + O(1) ≈ O(n log n)
+    last_call = calls_list[-1]
+    is O(1)
 
-    Time - Complexity: O(n)
+    Time - Complexity: O(1) + O(1) ≈ O(1)
     Space - complexity: O(n+m) ≈ O(n)
 
 

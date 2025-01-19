@@ -14,19 +14,24 @@ def task2():
         calls_list = list(reader)
 
     for call_list in calls_list:
-        telephone_call_duration_dict[call_list[0]] = telephone_call_duration_dict.get(call_list[0],0) + int(call_list[3])
-        telephone_call_duration_dict[call_list[1]] = telephone_call_duration_dict.get(call_list[1],0) + int(call_list[3])
+        telephone_call_duration_dict[call_list[0]] = (
+                telephone_call_duration_dict.get(call_list[0],0) + int(call_list[3]))
+        telephone_call_duration_dict[call_list[1]] = (
+                telephone_call_duration_dict.get(call_list[1],0) + int(call_list[3]))
 
     # dict sort
-    sort_telephone_call_duration_dict = dict(sorted(
-        telephone_call_duration_dict.items(),
-        key=lambda x:x[1],reverse=True
+    # sort_telephone_call_duration_dict = dict(sorted(
+    #     telephone_call_duration_dict.items(),
+    #     key=lambda x:x[1],reverse=True
+    #
+    # ))
+    #
+    # telephone_number,call_total_duration = next(iter(sort_telephone_call_duration_dict.items()))
+    max_call_telephone_number = max(telephone_call_duration_dict,key=telephone_call_duration_dict.get)
 
-    ))
-
-    telephone_number,call_total_duration = next(iter(sort_telephone_call_duration_dict.items()))
-    print(f"{telephone_number} spent the longest time, {call_total_duration} seconds, "
-          f"on the phone during September 2016.")
+    print("{} spent the longest time, {} seconds, "
+          "on the phone during September 2016."
+          .format(max_call_telephone_number,telephone_call_duration_dict[max_call_telephone_number]))
 
 
 """

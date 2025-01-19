@@ -4,8 +4,10 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
+
 def task1():
-    # Add the phone number to the Set and get the number of phone numbers based on the Set's non-repeatable property
+    # Add the phone number to the Set and get the number of phone numbers
+    # based on the Set's non-repeatable property
     # 根据Set的不可重复性来得到 电话号码的个数
     telephone_sets = set()
     with open('texts.csv', 'r') as f:
@@ -16,15 +18,20 @@ def task1():
         reader = csv.reader(f)
         calls_list = list(reader)
 
-    for text_list in texts_list:
-        telephone_sets.add(text_list[0])
-        telephone_sets.add(text_list[1])
+    # for text_list in texts_list:
+    #     telephone_sets.add(text_list[0])
+    #     telephone_sets.add(text_list[1])
+    #
+    # for call_list in calls_list:
+    #     telephone_sets.add(call_list[0])
+    #     telephone_sets.add(call_list[1])
 
-    for call_list in calls_list:
-        telephone_sets.add(call_list[0])
-        telephone_sets.add(call_list[1])
+    for record in texts_list + calls_list:
+        telephone_sets.add(record[0])
+        telephone_sets.add(record[1])
 
-    print(len(telephone_sets))
+    print(f"There are {len(telephone_sets)} different telephone numbers in the records")
+
 
 """
 TASK 1:

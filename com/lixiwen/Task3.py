@@ -6,6 +6,7 @@ import csv
 from decimal import Decimal, getcontext
 getcontext().prec = 4
 
+
 def task3():
     with open('calls.csv', 'r') as f:
         reader = csv.reader(f)
@@ -18,17 +19,19 @@ def task3():
     area_code_set = set()
     for call_number in bangalore_numbers_call_list:
         number = call_number[1]
-        if number[0] == "7" or number == "8" or number[0] == "9":
+        if number[0] == "7" or number[0] == "8" or number[0] == "9":
             area_code_set.add(number[0:4])
         elif number[0] == "(":
             end = number.find(")")
             area_code_set.add(number[1:end])
     area_code_list_sort = sorted(area_code_set)
-    print(f"The numbers called by people in Bangalore have codes: {area_code_list_sort}")
+    print("The numbers called by people in Bangalore have codes: ")
+    print(*area_code_list_sort, sep="\n")
 
     # taskB
     total_bangalore_calls = len(bangalore_numbers_call_list)
-    bangalore_call_bangalore_number_list = list(filter(lambda x: x[1].startswith('(080)'),bangalore_numbers_call_list))
+    bangalore_call_bangalore_number_list = (
+        list(filter(lambda x: x[1].startswith('(080)'),bangalore_numbers_call_list)))
     bangalore_call_bangalore_length = len(bangalore_call_bangalore_number_list)
     percent = Decimal(bangalore_call_bangalore_length)/Decimal(total_bangalore_calls) * 100
     print(f"{percent} percent of calls from fixed lines in Bangalore are calls to other fixed lines in "
