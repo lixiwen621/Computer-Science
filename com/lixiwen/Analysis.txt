@@ -13,13 +13,11 @@ TASK 0:
 TASK 1:
 
     Calculate Big O
-    telephone_sets.add(text_list[0])
-    telephone_sets.add(text_list[1])  in texts_list  = 2 * O(n)
+        for record in texts_list + calls_list:
+            telephone_sets.add(record[0])
+            telephone_sets.add(record[1])
 
-    telephone_sets.add(call_list[0])
-    telephone_sets.add(call_list[1])  in calls_list  = 2 * O(n)
-
-    Time - Complexity: 2 * O(n) + 2 * O(n) ≈ O(n)
+    Time - Complexity: O(n) + O(n) ≈ O(n)
     Space - complexity: O(n) + O(m) ≈ O(n)
 
 
@@ -34,14 +32,10 @@ TASK 2:
     is 2 * O(n)
 
     # dict sort
-    sort_telephone_call_duration_dict = dict(sorted(
-        telephone_call_duration_dict.items(),
-        key=lambda x:x[1],reverse=True
+    max_call_telephone_number = max(telephone_call_duration_dict,key=telephone_call_duration_dict.get)
+    is O(n)
 
-    ))
-    is O(n log n)
-
-    Time - Complexity: 2 * O(n) + O(n log n) ≈ O(n)
+    Time - Complexity: 2 * O(n) + O(n) ≈ O(n)
     Space - complexity:  O(n)
 
 
@@ -54,14 +48,14 @@ TASK 3:
 
     for call_number in bangalore_numbers_call_list:
         number = call_number[1]       is  O(n)
-    if number[0] == "7" or number == "8" or number[0] == "9":
+    if number[0] == "7" or number[0] == "8" or number[0] == "9":
         area_code_set.add(number[0:4])
     elif number[0] == "(":
         end = number.find(")")
         area_code_set.add(number[1:end])    is  O(n)
     area_code_list_sort = sorted(area_code_set)    is  O(n log n)
 
-    is O(n) + O(n) + O(n) + O(n log n) 约等于 O(n)
+    is O(n) + O(n) + O(n) + O(n log n) 约等于 O(n log n)
 
 
     total_bangalore_calls = len(bangalore_numbers_call_list)
