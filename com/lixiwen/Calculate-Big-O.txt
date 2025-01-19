@@ -1,0 +1,127 @@
+TASK 0:
+    texts_list.sort(key=lambda x: datetime.strptime(x[2], "%d-%m-%Y %H:%M:%S"))
+    first_text = texts_list[0]
+
+    calls_list.sort(key=lambda x: datetime.strptime(x[2], "%d-%m-%Y %H:%M:%S"))
+    last_call = calls_list[-1]
+
+    Calculate Big O
+    sort texts_list is O(n log n)
+    get(first_text)  O(1)
+    sort calls is O(m log m)
+    get(last_call)  O(1)
+
+    Time - Complexity: O(n log n) + O(m log m) + O(1) + O(1) ≈ O(n log n)
+
+    Time - Complexity: O(n)
+    Space - complexity: O(n+m) ≈ O(n)
+
+
+TASK 1:
+
+    Calculate Big O
+    telephone_sets.add(text_list[0])
+    telephone_sets.add(text_list[1])  in texts_list  = 2 * O(n)
+
+    telephone_sets.add(call_list[0])
+    telephone_sets.add(call_list[1])  in calls_list  = 2 * O(n)
+
+    Time - Complexity: 2 * O(n) + 2 * O(n) ≈ O(n)
+    Space - complexity: O(n) + O(m) ≈ O(n)
+
+
+
+TASK 2:
+
+    Calculate Big O
+    for call_list in calls_list:
+        telephone_call_duration_dict[call_list[0]] = telephone_call_duration_dict.get(call_list[0],0) + int(call_list[3])
+        telephone_call_duration_dict[call_list[1]] = telephone_call_duration_dict.get(call_list[1],0) + int(call_list[3])
+
+    is 2 * O(n)
+
+    # dict sort
+    sort_telephone_call_duration_dict = dict(sorted(
+        telephone_call_duration_dict.items(),
+        key=lambda x:x[1],reverse=True
+
+    ))
+    is O(n log n)
+
+    Time - Complexity: 2 * O(n) + O(n log n) ≈ O(n)
+    Space - complexity:  O(n)
+
+
+
+TASK 3:
+
+    Calculate Big O
+    bangalore_numbers_call_list = list(filter(lambda x: x[0].startswith('(080)'),calls_list))
+    is  O(n)
+
+    for call_number in bangalore_numbers_call_list:
+        number = call_number[1]       is  O(n)
+    if number[0] == "7" or number == "8" or number[0] == "9":
+        area_code_set.add(number[0:4])
+    elif number[0] == "(":
+        end = number.find(")")
+        area_code_set.add(number[1:end])    is  O(n)
+    area_code_list_sort = sorted(area_code_set)    is  O(n log n)
+
+    is O(n) + O(n) + O(n) + O(n log n) 约等于 O(n)
+
+
+    total_bangalore_calls = len(bangalore_numbers_call_list)
+    is O(1)
+
+    bangalore_call_bangalore_number_list = list(filter(lambda x: x[1].startswith('(080)'),bangalore_numbers_call_list))
+    is O(n)
+
+    bangalore_call_bangalore_length = len(bangalore_call_bangalore_number_list)
+    is O(1)
+
+    percent = Decimal(bangalore_call_bangalore_length)/Decimal(total_bangalore_calls) * 100
+    is O(1)
+
+    is  O(1)+ O(n) + O(1) + O(1) ≈  O(n)
+
+    Time - Complexity: O(n) + O(n) ≈ O(n)
+    Space - complexity:  O(n)
+
+
+
+TASK 4:
+
+    Calculate Big O
+    incoming_calls_list = [x[1] for x in calls_list]
+    is O(n)
+
+    outgoing_calls_list = [x[0] for x in calls_list]
+    is O(n)
+
+    for call_list in outgoing_calls_list:
+        if call_list not in incoming_calls_list:
+            telephone_marketing_set.add(call_list)
+    is O(n^2)
+
+    is  O(n) + O(n) + O(n^2)  ≈ O(n^2)
+
+    telephone_marketing_set = {
+        telephone_marketing
+        for telephone_marketing in telephone_marketing_set
+        if not any(
+            telephone_marketing == text_list[0] or telephone_marketing == text_list[1]
+            for text_list in texts_list
+        )
+    }
+    is O(n^2)
+
+    telephone_marketing_list = sorted(telephone_marketing_set)
+    is O(n log n)
+
+
+    Time - Complexity: O(n^2) + O(n^2) + O(n log n)≈ O(n^2)
+    Space - complexity:  O(n)
+
+
+

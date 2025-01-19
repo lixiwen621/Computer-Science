@@ -32,14 +32,13 @@ How many different telephone numbers are there in the records?
 Print a message:
 "There are <count> different telephone numbers in the records."
 
+Calculate Big O
 telephone_sets.add(text_list[0])
 telephone_sets.add(text_list[1])  in texts_list  = 2 * O(n)
 
 telephone_sets.add(call_list[0])
 telephone_sets.add(call_list[1])  in calls_list  = 2 * O(n)
 
-
-Calculate Big O
 Time - Complexity: 2 * O(n) + 2 * O(n) ≈ O(n)
 Space - complexity: O(n) + O(m) ≈ O(n)
 

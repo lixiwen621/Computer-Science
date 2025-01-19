@@ -25,7 +25,7 @@ def task2():
     ))
 
     telephone_number,call_total_duration = next(iter(sort_telephone_call_duration_dict.items()))
-    print(f"<{telephone_number}> spent the longest time, <{call_total_duration}> seconds, "
+    print(f"{telephone_number} spent the longest time, {call_total_duration} seconds, "
           f"on the phone during September 2016.")
 
 
@@ -36,6 +36,12 @@ also time spent on the phone.
 Print a message:
 "<telephone number> spent the longest time, <total time> seconds, on the phone during 
 September 2016.".
+
+Calculate Big O
+Time - Complexity: 2 * O(n) + O(n)
+Space - complexity:  O(n)
+
+
 
 任务 2：哪个电话号码拨打电话的时间最长
 期间？不要忘记接听电话所花费的时间
